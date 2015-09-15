@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+html,body,.container{
+	margin: 0;
+	padding: 0;
+	
+}
+
+header{
+	display: block;
+	margin:0;
+	position: relative;
+	width: 100%;
+	top: 0;
+	cursor: pointer;
+}
+
+
+
+/* Styling */
+
+header{
+	font-size:2em;
+	color: white;
+	padding: 0 1ex;
+	height: 1.2em;
+}
+
+p{
+	margin: 0;
+	padding: 1em
+}
+.container .section:nth-child(odd) header{
+	background-color: #8e44ad;
+}
+
+.container .section:nth-child(even) header{
+	background-color: #2980b9;
+}
+
+.section .slide:nth-child(odd){
+	background-color: #ecf0f1;
+}
+
+.section .slide:nth-child(even){
+	background-color: #bdc3c7;
+}
+
+.slide{
+	padding-top: 2em;
+}

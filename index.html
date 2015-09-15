@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css ">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>asd</title>
+    <script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="/js/jquery.scroll_to.js"></script>
+    <script src="/js/jquery.debounce.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p>
+	
+		<h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p><h1>Hello</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel! Repellendus sit amet, dignissimos! Obcaecati aperiam consequatur quasi ipsam libero praesentium soluta aliquid tempore reprehenderit ad, minima molestiae cumque reiciendis.</p>
+	</div>
+    <div class="container">
+        <div class="section">
+            <header>Title 1</header>
+            <div class="slide">
+                <p><strong>1</strong>miau ipsum dolor sit amet, consectetur adipisicing elit. Nulla vitae ab est culpa quam sint ut reprehenderit nam dolorem facere, recusandae ducimus quaerat nisi placeat, vel deleniti facilis eos asperiores.</p>
+            </div>
+            <div class="slide">
+                <p><strong>2</strong> ipsum dolor sit amet, consectetur adipisicing elit. Nulla vitae ab est culpa quam sint ut reprehenderit nam dolorem facere, recusandae ducimus quaerat nisi placeat, vel deleniti facilis eos asperiores.</p>
+            </div>
+        </div>
+        <div class="section">
+            <header>Title 1</header>
+            <div class="slide">
+                <p><strong>1</strong>miau ipsum dolor sit amet, consectetur adipisicing elit. Nulla vitae ab est culpa quam sint ut reprehenderit nam dolorem facere, recusandae ducimus quaerat nisi placeat, vel deleniti facilis eos asperiores.</p>
+            </div>
+            <div class="slide">
+                <p><strong>2</strong> ipsum dolor sit amet, consectetur adipisicing elit. Nulla vitae ab est culpa quam sint ut reprehenderit nam dolorem facere, recusandae ducimus quaerat nisi placeat, vel deleniti facilis eos asperiores.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    var ReporteSimple = function(theItem, parentContainer, headerContainer) {
+        var vm = this;
+
+        this.headerContainer = (typeof headerContainer != "undefined") ? headerContainer : 'header';
+        this.parentContainer = (typeof parentContainer != "undefined") ? parentContainer : 'section';
+        this.theItem = (typeof theItem != "undefined") ? theItem : 'article';
+        $(window).scroll($.debounce(400, function() {
+            vm.positionHeaders();
+        }));
+
+        $(window).resize($.debounce(400, function() {
+            vm.getHeights();
+            vm.positionHeaders();
+
+        }));
+        vm.getViewport();
+        vm.getHeights();
+    };
+
+
+    ReporteSimple.prototype.getViewport = function() {
+
+        var viewPortWidth;
+        var viewPortHeight;
+
+        if (typeof window.innerWidth != 'undefined') {
+            viewPortWidth = window.innerWidth;
+            viewPortHeight = window.innerHeight;
+        } else if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth !=
+            'undefined' && document.documentElement.clientWidth !== 0) {
+            viewPortWidth = document.documentElement.clientWidth;
+            viewPortHeight = document.documentElement.clientHeight;
+        } else {
+            viewPortWidth = document.getElementsByTagName('body')[0].clientWidth;
+            viewPortHeight = document.getElementsByTagName('body')[0].clientHeight;
+        }
+
+        this.viewport = [viewPortWidth, viewPortHeight];
+    };
+
+    ReporteSimple.prototype.positionHeaders = function() {
+        var vm = this;
+        // debugger;
+        $(vm.parentContainer).each(function() {
+            var el = $(this),
+		    offset = el.offset(),
+		    scrollTop = ($(window).scrollTop() + ((vm.viewport[1]) / 2));
+        	if ((scrollTop > offset.top) && (scrollTop < offset.top + el.height())) {
+		        $(vm.theItem, this).each(function() {
+
+		            var el = $(this),
+		                offset = el.offset(),
+		                scrollTop = ($(window).scrollTop() + ((vm.viewport[1]) / 2));
+
+
+		            if ((scrollTop > offset.top) && (scrollTop < offset.top + el.height())) {
+
+		                floatingHeader = $(this).parent('' + vm.parentContainer).find('' + vm.headerContainer);
+		                $(this).addClass('active_slide');
+		                $.scrollTo((el.offset().top), 400);
+		                $(vm.parentContainer + " " + vm.headerContainer).not(floatingHeader).attr('style', 'position:relative');
+		                floatingHeader.attr('style', 'position:fixed');
+		            }
+		        });
+		    }else{
+		    	$(vm.headerContainer, this).css('position','relative');
+		    }
+        });
+
+    };
+
+    ReporteSimple.prototype.getHeights = function() {
+        var vm = this;
+        $(vm.parentContainer).each(function() {
+            $(this).css('height', ($('' + vm.theItem, this).length * vm.viewport[1]));
+            $(vm.theItem, this).css('height', (vm.viewport[1]));
+        });
+    };
+
+
+
+
+    new ReporteSimple('.slide', '.section');
+    $(document).on('click','header', function(event){
+    	var header = $(this);
+    	event.preventDefault ? event.preventDefault() : event.returnValue = false;
+    	// debugger;
+    	if($(this).parent('.section.closed').length){
+    		$(this).parent('.section').animate({
+				// opacity: 0.25,
+				// left: "+=50",
+				height: $(this).parent('.section').attr('data-originalHeight')
+				}, 500, function() {
+				$('header',this).css('position','fixed');
+				$(this).removeClass('closed');
+		        $.scrollTo(($(this).offset().top), 400);
+
+			});
+    	}else{
+    		$(this).parent('.section').attr('data-originalHeight',$(this).parent('.section').height());
+			$(this).parent('.section').animate({
+				// opacity: 0.25,
+				// left: "+=50",
+				height: header.height()
+				}, 500, function() {
+				$('header',this).css('position','relative');
+				$(this).addClass('closed');
+		        // $.scrollTo(($(this).offset().top), 400);
+				
+			});
+    	}
+
+
+    });
+    </script>
