@@ -6,6 +6,13 @@ module.exports = function (grunt)
     grunt.initConfig(
     {
         
+        sass: {
+            dist: {
+                files: {
+                    'css/styles.css' : 'css/styles.scss'
+                }
+            }
+        },
         connect:
         {
             server:
@@ -20,7 +27,8 @@ module.exports = function (grunt)
         },
         watch: {
             html: {
-                files: ['**/*.html', 'css/**/*.css'],
+                files: ['**/*.html', '**/*.scss'],
+                tasks: ['sass'],
                 options: {
                     livereload: true,
                 }
