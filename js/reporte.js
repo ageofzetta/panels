@@ -1,14 +1,3 @@
-$('p.chance_me').each(function(){
-            $(this).html(chance.paragraph({sentences: 6})+'<br><br>'+chance.paragraph({sentences: 6}));
-        });
-        $('h1.chance_me').each(function(){
-            $(this).text(chance.word());
-        });
-        $('header.chance_me').each(function(){
-            $(this).text(chance.word());
-        });
-
-
 var simplePanels = function(theItem, parentContainer, headerContainer) {
         var vm = this;
 
@@ -76,14 +65,15 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
             $.scrollTo(slide_to, 1000);
         });
 
+        $(window).resize($.debounce(400, function() {
+
+        }));
         var timeout_resize;
-        window.addEventListener('scroll', function() {
+        window.addEventListener('resize', function() {
             // Get only the last window resize change
-            vm.positionHeaders();
             clearTimeout(timeout_resize);
             timeout_resize = setTimeout(function() {
                 vm.getHeights();
-                vm.positionSlides();
                 vm.positionSlides();
             }, 400);
         });
@@ -235,5 +225,3 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         }
 
     };
-
-    new simplePanels('.slide', '.section');

@@ -107,4 +107,20 @@
             </div>
         </div>
     </div>
-    <script src="/js/reporte.js"></script>
+    <script src="/js/reporte.min.js"></script>
+    <script>
+    	$('p.chance_me').each(function(){
+            $(this).html(chance.paragraph({sentences: 6})+'<br><br>'+chance.paragraph({sentences: 6}));
+        });
+        $('h1.chance_me').each(function(){
+            $(this).text(chance.word());
+        });
+        $('header.chance_me').each(function(){
+            $(this).text(chance.word());
+        });
+
+
+
+
+    new simplePanels('.slide', '.section');
+    </script>
