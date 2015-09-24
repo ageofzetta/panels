@@ -37,7 +37,6 @@ header{
 	    list-style-type: none;
 	    cursor:pointer;
 	    display: inline-block;
-	    background-color: pink;
 	    border-radius: 15px;
 	    width:1em;
 	    height:1em;
@@ -109,3 +108,4 @@ a.next{
 }
 
 @import 'styling';
+@import 'responsive';

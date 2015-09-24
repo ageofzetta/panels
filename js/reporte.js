@@ -6,7 +6,7 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         this.headerContainer = (typeof headerContainer != "undefined") ? headerContainer : 'header';
         this.parentContainer = (typeof parentContainer != "undefined") ? parentContainer : 'section';
         this.theItem = (typeof theItem != "undefined") ? theItem : 'article';
-        $('body').append('<div class="panelsNavigation"><a href="" class="next"></a> <a href="" class="prev"></a><ul class="sublime-menu hide"> </ul></div>');
+        $('body').append('<div class="panelsNavigation"><a href="" class="next"></a> <a href="" class="prev"></a><ul class="sublime-menu hide"><li><strong>Menu</strong></li></ul></div>');
         document.styleSheets[0].insertRule('.panelsNavigation *, .'+parentContainer.replace('.','')+' * {box-sizing: border-box; }',0);
         
         var timeout;
@@ -131,7 +131,7 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
 				        $('.sublime-menu li[data-slide-menu-link="'+this_slide+'"]').addClass('active');
 
                     }else{
-                        console.log(scrollTop +'>'+ offset.top +'&&'+ scrollTop +'<'+ offset.top + el.height());
+                        // console.log(scrollTop +'>'+ offset.top +'&&'+ scrollTop +'<'+ offset.top + el.height());
                     }
 
                 });
@@ -170,8 +170,10 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
     };
 
     simplePanels.prototype.getHeights = function() {
+        document.styleSheets[0].insertRule('.slide{overflow:hidden !important;}',0);
+        
         var vm = this;
-        $('.sublime-menu').html('');
+        $('.sublime-menu').html('<li><strong>Menu</strong></li>');
         $(vm.parentContainer).each(function(i) {
             $(this).css('height', ($('' + vm.theItem, this).length * vm.viewport[1]));
             $(vm.theItem, this).css('height', (vm.viewport[1]));

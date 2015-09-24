@@ -27,7 +27,6 @@ header {
     list-style-type: none;
     cursor: pointer;
     display: inline-block;
-    background-color: pink;
     border-radius: 15px;
     width: 1em;
     height: 1em;
@@ -110,24 +109,24 @@ p {
   transition: all .5s; }
 
 .container .section:nth-child(1) header {
-  background-color: #bf8402;
-  box-shadow: 0px 0.5ex 1px 0.25ex #5a3e01; }
+  background-color: #56bab8;
+  box-shadow: 0px 0.5ex 1px 0.25ex #317977; }
 
 .container .section:nth-child(2) header {
-  background-color: #d13788;
-  box-shadow: 0px 0.5ex 1px 0.25ex #841e54; }
+  background-color: #15b274;
+  box-shadow: 0px 0.5ex 1px 0.25ex #0a5739; }
 
 .container .section:nth-child(3) header {
-  background-color: #d60ddf;
-  box-shadow: 0px 0.5ex 1px 0.25ex #7a077f; }
+  background-color: #cf3d78;
+  box-shadow: 0px 0.5ex 1px 0.25ex #852149; }
 
 .container .section:nth-child(4) header {
-  background-color: #a04211;
-  box-shadow: 0px 0.5ex 1px 0.25ex #441c07; }
+  background-color: #f69d7d;
+  box-shadow: 0px 0.5ex 1px 0.25ex #ef551e; }
 
 .container .section:nth-child(5) header {
-  background-color: #1dda7a;
-  box-shadow: 0px 0.5ex 1px 0.25ex #118048; }
+  background-color: #fb5c59;
+  box-shadow: 0px 0.5ex 1px 0.25ex #e80a06; }
 
 /*
 .container .section:nth-child(1) header {
@@ -151,5 +150,42 @@ p {
   box-shadow: 0px 0.5ex 1px 0.25ex #065271; }
 
 */
+.sublime-menu {
+  left: 0;
+  top: 0;
+  width: 40%;
+  text-align: left;
+  background-color: #fff;
+  height: 100%;
+  box-shadow: 1ex 0 0.5ex rgba(0, 0, 0, 0.5);
+  padding-left: 0; }
+
+.sublime-menu li {
+  display: block;
+  border-radius: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  text-indent: 0;
+  padding: 0;
+  margin-top: 0;
+  transition: all 1s;
+  line-height: 1.5em;
+  padding: 0 1ex; }
+
+.sublime-menu li.slide_marker span {
+  opacity: 1;
+  text-indent: 0px; }
+
+.sublime-menu li.slide_marker {
+  background-color: transparent !important;
+  border-bottom: solid 1px #666; }
+
+.sublime-menu li.section_marker.active {
+  border-radius: 0px !important;
+  padding: 0 1ex; }
+
+.sublime-menu li.active {
+  font-weight: bolder; }
 
 /*# sourceMappingURL=styles.css.map */
