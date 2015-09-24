@@ -6,9 +6,18 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         this.headerContainer = (typeof headerContainer != "undefined") ? headerContainer : 'header';
         this.parentContainer = (typeof parentContainer != "undefined") ? parentContainer : 'section';
         this.theItem = (typeof theItem != "undefined") ? theItem : 'article';
-        $('body').append('<div class="panelsNavigation"><a href="" class="next"></a> <a href="" class="prev"></a><ul class="sublime-menu hide"><li><strong>Menu</strong></li></ul></div>');
-        document.styleSheets[0].insertRule('.panelsNavigation *, .'+parentContainer.replace('.','')+' * {box-sizing: border-box; }',0);
-        
+        $('body').append('<div class="panelsNavigation"><a href="" class="nextPanel hide"></a> <a href="" class="prevPanel hide"></a><ul class="sublime-menu hide"><li><strong>Menu</strong></li></ul></div>');
+        var panelsRule = '.panelsNavigation *, '+vm.parentContainer+' * {font-family: Open Sans; box-sizing: border-box; }';        
+        var slideRule = vm.theItem+' {border-bottom: 2px dashed #999; padding-top: 3em;}';
+        var slideRule2 = vm.theItem+' > div {margin: 5% 10%;}';
+        var headRule = vm.headerContainer+' {display: block; margin:0; position: relative; width: 100%; top: 0; cursor: pointer; background-color: #666; z-index:2; margin: 0;  color: #FFF;}';
+        var headRuleH1 = vm.headerContainer+' h1{margin: 0; margin-left:10%; color: #FFF;}';
+        document.styleSheets[0].insertRule(panelsRule,0);
+        document.styleSheets[0].insertRule(headRule,0);
+        document.styleSheets[0].insertRule(headRuleH1,0);
+        document.styleSheets[0].insertRule(slideRule,0);
+        document.styleSheets[0].insertRule(slideRule2,0);
+
         var timeout;
         window.addEventListener('scroll', function() {
             // Get only the last window resize change
@@ -34,13 +43,13 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
 
         };
 
-         document.querySelector('a.next').addEventListener('click', function(event) {
+         document.querySelector('a.nextPanel').addEventListener('click', function(event) {
             event.preventDefault ? event.preventDefault() : event.returnValue = false;
             vm.goNextSlide();
 
         }, false);
 
-         document.querySelector('a.prev').addEventListener('click', function(event) {
+         document.querySelector('a.prevPanel').addEventListener('click', function(event) {
             event.preventDefault ? event.preventDefault() : event.returnValue = false;
             vm.goPrevSlide();
 
@@ -65,9 +74,15 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
             $.scrollTo(slide_to, 1000);
         });
 
-        $(window).resize($.debounce(400, function() {
 
-        }));
+        var supportsOrientationChange = "onorientationchange" in window;
+        orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+        window.addEventListener(orientationEvent, function() {
+            vm.getHeights();
+            vm.positionSlides();
+        }, 400);
+
         var timeout_resize;
         window.addEventListener('resize', function() {
             // Get only the last window resize change
@@ -160,19 +175,18 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         });
 
         if (menu) {
-			$('.mobile-menu').removeClass('hide');
-			$('.sublime-menu').removeClass('hide');
+            $('.sublime-menu, .nextPanel, .prevPanel').removeClass('hide');
         }else{
-        	$('.mobile-menu').addClass('hide');
-			$('.sublime-menu').addClass('hide');
+            $('.sublime-menu, .nextPanel, .prevPanel').addClass('hide');
         }
 
     };
 
     simplePanels.prototype.getHeights = function() {
         document.styleSheets[0].insertRule('.slide{overflow:hidden !important;}',0);
-        
+
         var vm = this;
+        vm.getViewport();
         $('.sublime-menu').html('<li><strong>Menu</strong></li>');
         $(vm.parentContainer).each(function(i) {
             $(this).css('height', ($('' + vm.theItem, this).length * vm.viewport[1]));

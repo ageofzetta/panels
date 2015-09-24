@@ -1,26 +1,15 @@
-header {
-  display: block;
-  margin: 0;
-  position: relative;
-  width: 100%;
-  top: 0;
-  cursor: pointer;
-  background-color: #666; }
-
-.slide {
-  border-bottom: 2px dashed #999;
-  padding-top: 3em; }
-  .slide > div {
-    margin: 5% 10%; }
+body {
+  margin: 0; }
 
 .sublime-menu {
+  font-size: 1.2em;
   opacity: 1;
   margin: 0;
   padding: 0;
   position: fixed;
-  z-index: 12;
+  z-index: 4;
   left: 2em;
-  top: 5em;
+  top: 3em;
   width: 1em;
   text-align: center; }
   .sublime-menu li {
@@ -34,18 +23,20 @@ header {
     text-indent: -200px;
     padding: 0.25ex 1ex;
     margin-top: 1ex;
-    transition: all 1s; }
+    transition: all 2s; }
     .sublime-menu li.slide_marker {
       overflow: visible;
       text-indent: 1em;
       font-size: 1.5ex; }
       .sublime-menu li.slide_marker span {
         opacity: 0;
-        transtion: all 1s; }
-      .sublime-menu li.slide_marker.active span {
+        transtion: all 2s; }
+      .sublime-menu li.slide_marker.active span, .sublime-menu li.slide_marker:hover span {
         opacity: 1;
-        transtion: all 1s; }
-    .sublime-menu li.section_marker.active {
+        transtion: all 2s;
+        margin-top: -0.75ex;
+        position: absolute; }
+    .sublime-menu li.section_marker.active, .sublime-menu li.section_marker:hover {
       width: auto;
       height: auto;
       transition: all 1s;
@@ -54,44 +45,35 @@ header {
       border-radius: 0px;
       padding: 0.5ex 1.25ex;
       border-radius: 1ex; }
+    .sublime-menu li.section_marker:hover {
+      transition: all .5s; }
 
 .hide {
   opacity: 0;
   transition: all 1s; }
 
-a.prev {
+a.prevPanel {
   width: 1em;
   height: 1em;
   display: block;
   background: pink;
-  z-index: 13;
+  z-index: 3;
   position: fixed;
   top: 4em;
   left: calc(50% - 1ex); }
 
-a.next {
+a.nextPanel {
   width: 1em;
   height: 1em;
   display: block;
   background: pink;
-  z-index: 13;
+  z-index: 3;
   position: fixed;
   bottom: 1ex;
   left: calc(50% - 1ex); }
 
+/* COLORS AND STUFF TO LOOK PRETTY */
 /* Styling */
-header {
-  font-size: 2em;
-  color: white;
-  padding: 0 1ex;
-  height: 1.2em;
-  padding-left: 1.5em;
-  z-index: 2; }
-
-p {
-  margin: 0;
-  padding: 1em; }
-
 .container .normal {
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -108,84 +90,71 @@ p {
   -webkit-transition: all .5s;
   transition: all .5s; }
 
-.container .section:nth-child(1) header {
-  background-color: #56bab8;
-  box-shadow: 0px 0.5ex 1px 0.25ex #317977; }
-
-.container .section:nth-child(2) header {
-  background-color: #15b274;
-  box-shadow: 0px 0.5ex 1px 0.25ex #0a5739; }
-
-.container .section:nth-child(3) header {
-  background-color: #cf3d78;
-  box-shadow: 0px 0.5ex 1px 0.25ex #852149; }
-
-.container .section:nth-child(4) header {
-  background-color: #f69d7d;
-  box-shadow: 0px 0.5ex 1px 0.25ex #ef551e; }
-
-.container .section:nth-child(5) header {
-  background-color: #fb5c59;
-  box-shadow: 0px 0.5ex 1px 0.25ex #e80a06; }
-
 /*
-.container .section:nth-child(1) header {
-  background-color: #17eac5;
-  box-shadow: 0px 0.5ex 1px 0.25ex #0d8e77; }
 
-.container .section:nth-child(2) header {
-  background-color: #8214f9;
-  box-shadow: 0px 0.5ex 1px 0.25ex #5004a3; }
+.container .section:nth-child(1) header{
+	background-color: $surprise;
+	box-shadow: 0px .5rem 0 .3rem darken($surprise,20%);
+}
 
-.container .section:nth-child(3) header {
-  background-color: #cc1db8;
-  box-shadow: 0px 0.5ex 1px 0.25ex #731067; }
+.container .section:nth-child(2) header{
+	background-color: $surprise2;
+	box-shadow: 0px .5rem 0 .3rem darken($surprise2,20%);
+}
 
-.container .section:nth-child(4) header {
-  background-color: #a82374;
-  box-shadow: 0px 0.5ex 1px 0.25ex #54113a; }
+.container .section:nth-child(3) header{
+	background-color: $surprise3;
+	box-shadow: 0px .5rem 0 .3rem darken($surprise3,20%);
+}
 
-.container .section:nth-child(5) header {
-  background-color: #0c99d1;
-  box-shadow: 0px 0.5ex 1px 0.25ex #065271; }
+.container .section:nth-child(4) header{
+	background-color: $surprise4;
+	box-shadow: 0px .5rem 0 .3rem darken($surprise4,20%);
+}
+
+.container .section:nth-child(5) header{
+	background-color: $surprise5;
+	box-shadow: 0px .5rem 0 .3rem darken($surprise5,20%);
+}
 
 */
-.sublime-menu {
-  left: 0;
-  top: 0;
-  width: 40%;
-  text-align: left;
-  background-color: #fff;
-  height: 100%;
-  box-shadow: 1ex 0 0.5ex rgba(0, 0, 0, 0.5);
-  padding-left: 0; }
-
-.sublime-menu li {
-  display: block;
-  border-radius: 0;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  text-indent: 0;
-  padding: 0;
-  margin-top: 0;
-  transition: all 1s;
-  line-height: 1.5em;
-  padding: 0 1ex; }
-
-.sublime-menu li.slide_marker span {
-  opacity: 1;
-  text-indent: 0px; }
-
-.sublime-menu li.slide_marker {
-  background-color: transparent !important;
-  border-bottom: solid 1px #666; }
-
-.sublime-menu li.section_marker.active {
-  border-radius: 0px !important;
-  padding: 0 1ex; }
-
-.sublime-menu li.active {
-  font-weight: bolder; }
+/* RESPONSIVE */
+@media screen and (max-width: 800px) {
+  .sublime-menu {
+    left: -100%;
+    top: 0;
+    width: 40%;
+    text-align: left;
+    background-color: #fff;
+    height: 100%;
+    box-shadow: 1ex 0 0.5ex rgba(0, 0, 0, 0.5);
+    padding-left: 0;
+    overflow-y: auto; }
+    .sublime-menu li {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 0;
+      padding: 0 1ex;
+      text-indent: 0;
+      line-height: 1.5em;
+      border-radius: 0;
+      overflow: hidden;
+      transition: all 1s; }
+      .sublime-menu li.active, .sublime-menu li:hover {
+        padding: 0 1ex !important;
+        font-weight: bolder;
+        border-radius: 0px !important; }
+      .sublime-menu li.slide_marker {
+        background-color: transparent !important;
+        border-bottom: solid 1px #666; }
+        .sublime-menu li.slide_marker span {
+          opacity: 1;
+          text-indent: 0px;
+          position: relative !important;
+          margin-top: 0 !important; } }
+@media screen and (max-width: 600px) {
+  .sublime-menu {
+    width: 80%; } }
 
 /*# sourceMappingURL=styles.css.map */
