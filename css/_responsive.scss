@@ -1,4 +1,29 @@
  @media screen and (max-width: 800px) {
+     a.menu {
+         font-family: monospace;
+         font-weight: bolder !important;
+         text-decoration: none;
+         color: #FFF;
+         padding: 1ex;
+         vertical-align: middle;
+         position: fixed;
+         top: .7ex;
+         z-index: 5;
+         left: 1em;
+         font-size: 1.2em;
+         transform: scale(2, 1.7);
+         -webkit-transform: scale(2, 1.7);
+         -moz-transform: scale(2, 1.7);
+         -ms-transform: scale(2, 1.7);
+         -o-transform: scale(2, 1.7);
+         opacity: 0.75;
+         &.close {
+             left: calc( 40% + 1.5ex);
+             opacity: 1;
+             padding: .5ex .75ex;
+         }
+         transition: all .5s;
+     }
      .sublime-menu {
          left: -100%;
          top: 0;
@@ -20,7 +45,8 @@
              border-radius: 0;
              overflow: hidden;
              transition: all 1s;
-             &.active, &:hover {
+             &.active,
+             &:hover {
                  padding: 0 1ex !important;
                  font-weight: bolder;
                  border-radius: 0px !important;
@@ -37,10 +63,23 @@
              }
          }
      }
+     .slide_left {
+         left: 0;
+         transition: .5s;
+     }
  }
-@media screen and (max-width: 600px) {
-    .sublime-menu {
-        width: 80%;
-    }
-
+ 
+ @media screen and (max-width: 600px) {
+     .sublime-menu {
+         width: 80%;
+     }
+     a.menu {
+         padding: 1.5ex 0;
+         font-size: 1em;
+         &.close {
+             left: calc( 80% + 1.5ex);
+             opacity: 1;
+             padding: .5ex .75ex;
+         }
+     }
  }

@@ -6,7 +6,7 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         this.headerContainer = (typeof headerContainer != "undefined") ? headerContainer : 'header';
         this.parentContainer = (typeof parentContainer != "undefined") ? parentContainer : 'section';
         this.theItem = (typeof theItem != "undefined") ? theItem : 'article';
-        $('body').append('<div class="panelsNavigation"><a href="" class="nextPanel hide"></a> <a href="" class="prevPanel hide"></a><ul class="sublime-menu hide"><li><strong>Menu</strong></li></ul></div>');
+        $('body').append('<div class="panelsNavigation"> <a href="" class="nextPanel hide"></a> <a href="" class="prevPanel hide"></a><a href="#" class="menu open">&#9776;</a><ul class="sublime-menu hide"><li><strong>Menu</strong></li></ul></div>');
         var panelsRule = '.panelsNavigation *, '+vm.parentContainer+' * {font-family: Open Sans; box-sizing: border-box; }';        
         var slideRule = vm.theItem+' {border-bottom: 2px dashed #999; padding-top: 3em;}';
         var slideRule2 = vm.theItem+' > div {margin: 5% 10%;}';
@@ -72,6 +72,17 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
             var this_slide = $('.slide[data-slide-menu-link="'+this_menu+'"]');
             var slide_to = (this_slide.offset().top + 50);
             $.scrollTo(slide_to, 1000);
+        });
+
+         $(document).on('click', '.menu.open', function(event) {
+            event.preventDefault ? event.preventDefault() : event.returnValue = false;
+            $(this).html('&times;').removeClass('open').addClass('close');
+            $('.sublime-menu').addClass('slide_left');
+        });
+        $(document).on('click', '.menu.close', function(event) {
+            event.preventDefault ? event.preventDefault() : event.returnValue = false;
+            $(this).html('&#9776;').removeClass('close').addClass('open');
+            $('.sublime-menu').removeClass('slide_left');
         });
 
 
@@ -144,12 +155,15 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
 		                $('.sublime-menu li.active').removeClass('active');
 				        $('.sublime-menu li[data-section-menu-link="'+this_menu+'"]').addClass('active');
 				        $('.sublime-menu li[data-slide-menu-link="'+this_slide+'"]').addClass('active');
+                        return false;
 
                     }else{
-                        // console.log(scrollTop +'>'+ offset.top +'&&'+ scrollTop +'<'+ offset.top + el.height());
+                        var this_class = $(this).attr('data-slide-menu-link');
+                        console.log('Not on this '+this_class+' ' +scrollTop +' > '+ offset.top +' && '+ scrollTop +' < '+ offset.top + el.height());
                     }
 
                 });
+                return false;
             }
         });
 
