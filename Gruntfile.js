@@ -1,24 +1,39 @@
-module.exports = function (grunt)
-{
+module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Project configuration.
-    grunt.initConfig(
-    {
-        
+    grunt.initConfig({
+
         sass: {
             dist: {
                 files: {
-                    'css/styles.css' : 'css/styles.scss'
+                    'css/styles.css': 'css/styles.scss'
                 }
             }
         },
-        connect:
-        {
-            server:
-            {
-                options:
-                {
+
+        postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('autoprefixer')({
+                        browsers: ['last 5 versions', 'ie 8', 'ie 9']
+                    }),
+                    require('postcss-opacity')(),
+                    require('cssnano')() 
+                ]
+
+            },
+            dist: {
+                files: {
+                    'css/styles.min.css': 'css/styles.css'
+                }
+            }
+        },
+
+        connect: {
+            server: {
+                options: {
                     livereload: true,
                     port: 80,
                     base: './',
@@ -27,7 +42,7 @@ module.exports = function (grunt)
         },
         watch: {
             html: {
-                files: ['**/*.html', '**/*.scss','js/*.js'],
+                files: ['**/*.html', '**/*.scss', 'js/*.js'],
                 tasks: ['sass'],
                 options: {
                     livereload: true,
@@ -40,6 +55,7 @@ module.exports = function (grunt)
 
     // Default task.
     grunt.registerTask('serve', ['connect:server', 'watch']);
+    grunt.registerTask('build', ['sass', 'postcss']);
 
 
 };

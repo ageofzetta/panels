@@ -9,17 +9,11 @@ body {
   width: 70%; }
   .has_zoom.normal {
     transform: scale(1);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
     opacity: 1;
-    -webkit-transition: all .5s;
     transition: all .5s; }
   .has_zoom.zoom {
     transform: scale(0.7);
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
     opacity: .5;
-    -webkit-transition: all .5s;
     transition: all .5s; }
 
 .hide {
@@ -239,23 +233,23 @@ a.nextPanel {
 /* COLORS  TO LOOK PRETTY */
 /* Styling */
 .parent .section:nth-child(1) header {
-  background-color: #56f423;
-  box-shadow: 0px 0.5ex 0 0.3ex #30a908; }
+  background-color: #c07bd0;
+  box-shadow: 0px 0.5ex 0 0.3ex #943ca9; }
 
 .parent .section:nth-child(2) header {
-  background-color: #a30212;
-  box-shadow: 0px 0.5ex 0 0.3ex #3e0107; }
+  background-color: #e6a22a;
+  box-shadow: 0px 0.5ex 0 0.3ex #986812; }
 
 .parent .section:nth-child(3) header {
-  background-color: #7e3435;
-  box-shadow: 0px 0.5ex 0 0.3ex #361617; }
+  background-color: #ad066f;
+  box-shadow: 0px 0.5ex 0 0.3ex #4a0330; }
 
 .parent .section:nth-child(4) header {
-  background-color: #058148;
-  box-shadow: 0px 0.5ex 0 0.3ex #011f11; }
+  background-color: #e2fb0e;
+  box-shadow: 0px 0.5ex 0 0.3ex #90a003; }
 
 .parent .section:nth-child(5) header {
-  background-color: #f9f0f1;
-  box-shadow: 0px 0.5ex 0 0.3ex #dca7ad; }
+  background-color: #2d1e14;
+  box-shadow: 0px 0.5ex 0 0.3ex black; }
 
 /*# sourceMappingURL=styles.css.map */
