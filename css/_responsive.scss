@@ -110,6 +110,6 @@
 }
 
 .slide_left {
-    left: 0;
+    left: 0 !important;
     transition: .5s ease-in-out;
 }

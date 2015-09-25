@@ -28,7 +28,7 @@ body {
 }
 
 .hide {
-    opacity: 0;
+    opacity: 0 !important;
     transition: all 1 ease-in-outs
 }
 

@@ -37,6 +37,10 @@
                     transtion: all 2s;
                     margin-top: -0.75ex;
                     position: absolute;
+                    text-align: left;
+                    text-indent: 0;
+                    margin-left: 1em;
+                    line-height: 1em;
                 }
             }
         }
@@ -63,8 +67,6 @@
         }
     }
 }
-
-
 
 a.prevPanel {
     width: 0;

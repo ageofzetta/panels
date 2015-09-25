@@ -23,7 +23,7 @@ body {
     transition: all .5s; }
 
 .hide {
-  opacity: 0;
+  opacity: 0 !important;
   transition: all 1 ease-in-outs; }
 
 .panelHeader {
@@ -84,7 +84,11 @@ body {
         opacity: 1;
         transtion: all 2s;
         margin-top: -0.75ex;
-        position: absolute; }
+        position: absolute;
+        text-align: left;
+        text-indent: 0;
+        margin-left: 1em;
+        line-height: 1em; }
     .sublime-menu li.section_marker {
       font-size: 1.2ex;
       padding: .5ex 1.25ex;
@@ -229,29 +233,29 @@ a.nextPanel {
   a.prevPanel {
     top: calc(15vw + 50px); } }
 .slide_left {
-  left: 0;
+  left: 0 !important;
   transition: .5s ease-in-out; }
 
 /* COLORS  TO LOOK PRETTY */
 /* Styling */
 .parent .section:nth-child(1) header {
-  background-color: #68a8da;
-  box-shadow: 0px 0.5ex 0 0.3ex #2b76b1; }
+  background-color: #56f423;
+  box-shadow: 0px 0.5ex 0 0.3ex #30a908; }
 
 .parent .section:nth-child(2) header {
-  background-color: #ad691d;
-  box-shadow: 0px 0.5ex 0 0.3ex #56340e; }
+  background-color: #a30212;
+  box-shadow: 0px 0.5ex 0 0.3ex #3e0107; }
 
 .parent .section:nth-child(3) header {
-  background-color: #34d5f2;
-  box-shadow: 0px 0.5ex 0 0.3ex #0c9bb4; }
+  background-color: #7e3435;
+  box-shadow: 0px 0.5ex 0 0.3ex #361617; }
 
 .parent .section:nth-child(4) header {
-  background-color: #b766d3;
-  box-shadow: 0px 0.5ex 0 0.3ex #862fa4; }
+  background-color: #058148;
+  box-shadow: 0px 0.5ex 0 0.3ex #011f11; }
 
 .parent .section:nth-child(5) header {
-  background-color: #fd96b0;
-  box-shadow: 0px 0.5ex 0 0.3ex #fb3265; }
+  background-color: #f9f0f1;
+  box-shadow: 0px 0.5ex 0 0.3ex #dca7ad; }
 
 /*# sourceMappingURL=styles.css.map */
