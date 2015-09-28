@@ -1,115 +1,135 @@
-@media screen and (max-width: 800px) {
-    .panelHeader {
-        > * {
-            margin: 0;
-        }
-        font-size: 5vw;
-        text-align: center;
-    }
-    .has_zoom {
-        top: calc(5% + 50px +15vw);
-    }
-    .sublime-menu {
-        left: calc(-40% - 16px);
-        top: 50px;
-        width: 40%;
-        text-align: left;
-        background-color: #fff;
-        height: 100%;
-        box-shadow: 8px 0 16px rgba(0, 0, 0, 0.5);
-        padding-left: 0;
-        overflow-y: auto;
-        transition: all .5s ease-in-out;
-        li {
-            width: 100% !important;
-            height: auto !important;
-            display: block !important;
-            margin: 0 !important;
-            padding: 0 1ex !important;
-            font-size: 16px !important;
-            text-indent: 0;
-            line-height: 2em;
-            border-radius: 0;
-            overflow: hidden;
-            transition: all .5s ease-in-out;
-            &.active,
-            &:hover {
-                padding: 0 1ex !important;
-                font-weight: bolder;
-                border-radius: 0px !important;
+    @media screen and (max-width: 800px) {
+        .panelHeader {
+            > * {
+                margin: 0;
             }
-            &.slide_marker {
-                width: 100%;
-                background-color: transparent !important;
-                border-bottom: solid 1px #666;
-                span {
-                    opacity: 1;
-                    text-indent: 0px;
-                    position: relative !important;
-                    margin-top: 0 !important;
+            font-size: 5vw;
+            text-align: center;
+            .panelAction {
+                right: 0;
+            }
+        }
+        .has_zoom {
+            top: calc(5% + 50px);
+        }
+        .sublime-menu {
+            left: calc(-40% - 16px);
+            top: 50px;
+            width: 40%;
+            text-align: left;
+            background-color: #fff;
+            height: 100%;
+            box-shadow: 8px 0 16px rgba(0, 0, 0, 0.5);
+            padding-left: 0;
+            overflow-y: auto;
+            transition: all .5s ease-in-out;
+            li {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                margin: 0 !important;
+                padding: 0 1ex !important;
+                font-size: 16px !important;
+                text-indent: 0;
+                line-height: 2em;
+                border-radius: 0;
+                overflow: hidden;
+                transition: all .5s ease-in-out;
+                &.active,
+                &:hover {
+                    padding: 0 1ex !important;
+                    font-weight: bolder;
+                    border-radius: 0px !important;
+                }
+                &.slide_marker {
+                    width: 100%;
+                    background-color: transparent !important;
+                    border-bottom: solid 1px #666;
+                    span {
+                        opacity: 1;
+                        text-indent: 0px;
+                        position: relative !important;
+                        margin-top: 0 !important;
+                    }
+                }
+                &:first-child {
+                    background-color: #4e5a68;
+                    color: #FFF;
+                    padding: 1ex;
                 }
             }
-            &:first-child {
-                background-color: #4e5a68;
-                color: #FFF;
+        }
+        a.menu {
+            font-family: monospace;
+            font-weight: bolder !important;
+            text-decoration: none;
+            color: #FFF !important;
+            padding: 1ex;
+            vertical-align: middle;
+            position: fixed;
+            top: calc(1.1ex + 50px);
+            z-index: 5;
+            left: 1em;
+            font-size: 1.2em;
+            transform: scale(2, 1.7);
+            -webkit-transform: scale(2, 1.7);
+            -moz-transform: scale(2, 1.7);
+            -ms-transform: scale(2, 1.7);
+            -o-transform: scale(2, 1.7);
+            opacity: 0.75;
+            &.close {
+                left: calc( 40% + 1.1ex);
+                opacity: 1;
+                padding: .5ex .75ex;
+                background-color: rgba(0, 0, 0, 0.75);
+            }
+            transition: all .5s ease-in-out;
+        }
+        a.prevPanel {
+            top: calc(10vw + 50px);
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        .sublime-menu {
+            width: 80%;
+            left: calc(-80% - 16px);
+        }
+        .panelHeader {
+            line-height: 2em;
+        }
+        a.menu {
+            padding: 1ex;
+            font-size: 2.5vw;
+            &.close {
+                left: calc( 80% + 1.5ex);
+                opacity: 1;
+                padding: .5ex .75ex;
+            }
+        }
+        a.prevPanel {
+            top: calc(15vw + 50px);
+        }
+    }
+    
+    @media screen and (max-width: 400px) {
+        .panelHeader {
+            .panelAction {
+                line-height: 2.5em;
+            }
+            > * {
+                line-height: 2.5em;
+            }
+        }
+        .sublime-menu {
+            a.menu {
                 padding: 1ex;
+                font-size: 3.5vw;
             }
         }
     }
-    a.menu {
-        font-family: monospace;
-        font-weight: bolder !important;
-        text-decoration: none;
-        color: #FFF !important;
-        padding: 1ex;
-        vertical-align: middle;
-        position: fixed;
-        top: calc(1.1ex + 50px);
-        z-index: 5;
-        left: 1em;
-        font-size: 1.2em;
-        transform: scale(2, 1.7);
-        -webkit-transform: scale(2, 1.7);
-        -moz-transform: scale(2, 1.7);
-        -ms-transform: scale(2, 1.7);
-        -o-transform: scale(2, 1.7);
-        opacity: 0.75;
-        &.close {
-            left: calc( 40% + 1.1ex);
-            opacity: 1;
-            padding: .5ex .75ex;
-            background-color: rgba(0, 0, 0, 0.75);
-        }
-        transition: all .5s ease-in-out;
+    
+    .slide_left {
+        left: 0 !important;
+        transition: .5s ease-in-out;
     }
-    a.prevPanel {
-        top: calc(10vw + 50px);
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .sublime-menu {
-        width: 80%;
-        left: calc(-80% - 16px);
-    }
-    .panelHeader {
-        line-height: 2em;
-    }
-    a.menu {
-        padding: 1ex;
-        font-size: 2.5vw;
-        &.close {
-            left: calc( 80% + 1.5ex);
-            opacity: 1;
-            padding: .5ex .75ex;
-        }
-    }
-    a.prevPanel {
-        top: calc(15vw + 50px);
-    }
-}
-
-.slide_left {
-    left: 0 !important;
-    transition: .5s ease-in-out;
-}

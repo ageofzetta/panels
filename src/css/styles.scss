@@ -32,9 +32,11 @@ body {
 }
 
 .border_box.disabled {
-    height: 4.5em !important;
-    overflow-y: hidden;
-    transition: all 1s ease-in-out;
+    height: auto !important;
+    .borderedSlide {
+        display: none;
+        transition: all 1s ease-in-out;
+    }
 }
 
 .borderedSlide {
@@ -92,7 +94,7 @@ body {
         }
         &.close {
             &:before {
-                content: '\f00d';
+                content: '\f077';
             }
         }
     }

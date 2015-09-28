@@ -25,9 +25,10 @@ body {
   box-sizing: border-box; }
 
 .border_box.disabled {
-  height: 4.5em !important;
-  overflow-y: hidden;
-  transition: all 1s ease-in-out; }
+  height: auto !important; }
+  .border_box.disabled .borderedSlide {
+    display: none;
+    transition: all 1s ease-in-out; }
 
 .borderedSlide {
   border-bottom: 2px dashed #999;
@@ -76,7 +77,7 @@ body {
     .panelHeader .panelAction.open:before {
       content: '\f078'; }
     .panelHeader .panelAction.close:before {
-      content: '\f00d'; }
+      content: '\f077'; }
 
 /* MENU STYLES */
 .sublime-menu {
@@ -172,9 +173,11 @@ a.nextPanel {
     text-align: center; }
     .panelHeader > * {
       margin: 0; }
+    .panelHeader .panelAction {
+      right: 0; }
 
   .has_zoom {
-    top: calc(5% + 50px +15vw); }
+    top: calc(5% + 50px); }
 
   .sublime-menu {
     left: calc(-40% - 16px);
@@ -262,6 +265,15 @@ a.nextPanel {
 
   a.prevPanel {
     top: calc(15vw + 50px); } }
+@media screen and (max-width: 400px) {
+  .panelHeader .panelAction {
+    line-height: 2.5em; }
+  .panelHeader > * {
+    line-height: 2.5em; }
+
+  .sublime-menu a.menu {
+    padding: 1ex;
+    font-size: 3.5vw; } }
 .slide_left {
   left: 0 !important;
   transition: .5s ease-in-out; }
@@ -269,23 +281,23 @@ a.nextPanel {
 /* COLORS  TO LOOK PRETTY */
 /* Styling */
 .border_box:nth-child(1) header {
-  background-color: #e11243;
-  box-shadow: 0px 0.5ex 0 0.3ex #830a27; }
+  background-color: #e6a1e6;
+  box-shadow: 0px 0.5ex 0 0.3ex #d150d1; }
 
 .border_box:nth-child(2) header {
-  background-color: #91612a;
-  box-shadow: 0px 0.5ex 0 0.3ex #422c13; }
+  background-color: #397fd9;
+  box-shadow: 0px 0.5ex 0 0.3ex #1c4f90; }
 
 .border_box:nth-child(3) header {
-  background-color: #797e08;
-  box-shadow: 0px 0.5ex 0 0.3ex #1d1e02; }
+  background-color: #30f5ca;
+  box-shadow: 0px 0.5ex 0 0.3ex #09b690; }
 
 .border_box:nth-child(4) header {
-  background-color: #a40a01;
-  box-shadow: 0px 0.5ex 0 0.3ex #3f0400; }
+  background-color: #7d0a38;
+  box-shadow: 0px 0.5ex 0 0.3ex #1f020e; }
 
 .border_box:nth-child(5) header {
-  background-color: #d11a44;
-  box-shadow: 0px 0.5ex 0 0.3ex #760f26; }
+  background-color: #f78f70;
+  box-shadow: 0px 0.5ex 0 0.3ex #f2430f; }
 
 /*# sourceMappingURL=styles.css.map */
