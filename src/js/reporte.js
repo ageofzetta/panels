@@ -33,6 +33,20 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
 
     };
 
+    $(document).on('click', '.panelAction.open', function(event) {
+        event.preventDefault ? event.preventDefault() : event.returnValue = false;
+        $(this).removeClass('open').addClass('close');
+        $(this).parent().parent(vm.parentContainer).removeClass('disabled');
+        $.scrollTo(($(this).parent().parent(vm.parentContainer).offset().top + 50), 1000);
+    });
+
+    $(document).on('click', '.panelAction.close', function(event) {
+        event.preventDefault ? event.preventDefault() : event.returnValue = false;
+        $(this).removeClass('close').addClass('open');
+        $(this).parent().parent(vm.parentContainer).addClass('disabled');
+        vm.goNextSlide();
+    });
+
     document.querySelector('a.nextPanel').addEventListener('click', function(event) {
         event.preventDefault ? event.preventDefault() : event.returnValue = false;
         vm.goNextSlide();
@@ -52,6 +66,8 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         $('.sublime-menu li.section_marker.active').removeClass('active');
         var this_menu = $(this).attr('data-section-menu-link');
         var this_header = $('header[data-section-menu-link="' + this_menu + '"]').parent('.section');
+        this_header.removeClass('disabled');
+        $('.panelAction', this_header).removeClass('open').addClass('close');
         $(this).addClass("active");
 
         $.scrollTo((this_header.offset().top + 50), 1000);
@@ -106,13 +122,13 @@ simplePanels.prototype.renderMenu = function() {
     var vm = this;
     $('body').append('<div class="panelsNavigation"> <a href="" class="nextPanel hide"></a> <a href="" class="prevPanel hide"></a><a href="#" class="menu open">&#9776;</a><ul class="sublime-menu hide"><li><strong>Menu</strong></li></ul></div>');
     $(vm.parentContainer).each(function(i) {
-        $(this).addClass('section-' + i).addClass('border_box');
+        $(this).addClass('section-' + i).addClass('disabled border_box');
         var this_header = $(vm.headerContainer, this);
-        debugger;
         var bgc = this_header.css('background-color');
         this_header.attr('data-section-menu-link', 'header-' + i).addClass('panelHeader');
         var color = vm.contrastingColor(bgc.replace('rgb(', '').replace(')', '').split(', '));
         var data_title = this_header.attr('data-title') ? this_header.attr('data-title') : this_header.text();
+        this_header.append('<a href="#" class="panelAction open"></a href="#">');
         $('.sublime-menu').append('<li class="section_marker" data-section-menu-link="header-' + i + '" style="background-color:' + bgc + ';color:#' + color + '">' + data_title + '</li>');
         $(vm.theItem, this).each(function(j) {
             $(this).addClass('borderedSlide');

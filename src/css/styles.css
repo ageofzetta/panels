@@ -16,9 +16,18 @@ body {
     opacity: .5;
     transition: all .5s; }
 
-.panelsNavigation *, .border_box * {
-  font-family: Open Sans;
+.panelsNavigation,
+.border_box {
+  font-family: Open Sans; }
+
+.panelsNavigation *,
+.border_box * {
   box-sizing: border-box; }
+
+.border_box.disabled {
+  height: 4.5em !important;
+  overflow-y: hidden;
+  transition: all 1s ease-in-out; }
 
 .borderedSlide {
   border-bottom: 2px dashed #999;
@@ -27,7 +36,7 @@ body {
 
 .hide {
   opacity: 0 !important;
-  transition: all 1 ease-in-outs; }
+  transition: all 1s ease-in-outs; }
 
 .panelHeader {
   font-size: 38px;
@@ -50,6 +59,24 @@ body {
     margin: 0;
     margin-left: 15%;
     color: #FFF; }
+  .panelHeader .panelAction {
+    font-family: 'FontAwesome';
+    display: block;
+    position: absolute;
+    right: 6em;
+    top: 0;
+    color: #FFF;
+    font-size: inherit;
+    text-align: center;
+    width: 1.5em;
+    line-height: 1.5em;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-decoration: none; }
+    .panelHeader .panelAction.open:before {
+      content: '\f078'; }
+    .panelHeader .panelAction.close:before {
+      content: '\f00d'; }
 
 /* MENU STYLES */
 .sublime-menu {
@@ -75,17 +102,17 @@ body {
     padding: 0.25ex 1ex;
     margin: auto;
     margin-bottom: 1.2em;
-    transition: all 2s ease-in-out; }
+    transition: all 1s ease-in-out; }
     .sublime-menu li.slide_marker {
       overflow: visible;
       text-indent: 1em;
       font-size: 1.5ex; }
       .sublime-menu li.slide_marker span {
         opacity: 0;
-        transtion: all 2s; }
+        transition: all .5s ease-in-out; }
       .sublime-menu li.slide_marker.active span, .sublime-menu li.slide_marker:hover span {
         opacity: 1;
-        transtion: all 2s;
+        transtion: all .5s;
         margin-top: -0.75ex;
         position: absolute;
         text-align: left;
@@ -242,23 +269,23 @@ a.nextPanel {
 /* COLORS  TO LOOK PRETTY */
 /* Styling */
 .border_box:nth-child(1) header {
-  background-color: #9b3904;
-  box-shadow: 0px 0.5ex 0 0.3ex #381401; }
+  background-color: #e11243;
+  box-shadow: 0px 0.5ex 0 0.3ex #830a27; }
 
 .border_box:nth-child(2) header {
-  background-color: #33acb1;
-  box-shadow: 0px 0.5ex 0 0.3ex #1c5f62; }
+  background-color: #91612a;
+  box-shadow: 0px 0.5ex 0 0.3ex #422c13; }
 
 .border_box:nth-child(3) header {
-  background-color: #fee978;
-  box-shadow: 0px 0.5ex 0 0.3ex #fdd913; }
+  background-color: #797e08;
+  box-shadow: 0px 0.5ex 0 0.3ex #1d1e02; }
 
 .border_box:nth-child(4) header {
-  background-color: #2d2ba3;
-  box-shadow: 0px 0.5ex 0 0.3ex #171652; }
+  background-color: #a40a01;
+  box-shadow: 0px 0.5ex 0 0.3ex #3f0400; }
 
 .border_box:nth-child(5) header {
-  background-color: #090e49;
-  box-shadow: 0px 0.5ex 0 0.3ex black; }
+  background-color: #d11a44;
+  box-shadow: 0px 0.5ex 0 0.3ex #760f26; }
 
 /*# sourceMappingURL=styles.css.map */

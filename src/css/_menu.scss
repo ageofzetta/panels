@@ -21,20 +21,20 @@
         padding: 0.25ex 1ex;
         margin: auto;
         margin-bottom: 1.2em;
-        transition: all 2s ease-in-out;
+        transition: all 1s ease-in-out;
         &.slide_marker {
             overflow: visible;
             text-indent: 1em;
             font-size: 1.5ex;
             span {
                 opacity: 0;
-                transtion: all 2s;
+                transition: all .5s ease-in-out;
             }
             &.active,
             &:hover {
                 span {
                     opacity: 1;
-                    transtion: all 2s;
+                    transtion: all .5s;
                     margin-top: -0.75ex;
                     position: absolute;
                     text-align: left;
