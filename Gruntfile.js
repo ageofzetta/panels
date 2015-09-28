@@ -4,17 +4,30 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
 
+        clean: ['dist/**/*'],
+
+        copy: {
+            build: {
+                expand: true,
+                cwd: 'src/js/vendor/',
+                src: '**',
+                dest: 'dist/',
+                flatten: true,
+                filter: 'isFile',
+            }
+        },
+
         sass: {
             dist: {
                 files: {
-                    'css/styles.css': 'css/styles.scss'
+                    'src/css/styles.css': 'src/css/styles.scss'
                 }
             }
         },
 
         postcss: {
             options: {
-                map: true,
+                map: false,
                 processors: [
                     require('autoprefixer')({
                         browsers: ['last 5 versions', 'ie 8', 'ie 9']
@@ -26,7 +39,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/styles.min.css': 'css/styles.css'
+                    'dist/styles.min.css': 'src/css/styles.css'
                 }
             }
         },
@@ -40,11 +53,25 @@ module.exports = function(grunt) {
                 }
             }
         },
+        
+        uglify: {
+            dist: {
+                options: {
+                    sourcemap: 'none',
+                    mangle: false
+                },
+                files: {
+                    'dist/reporte.min.js': 'src/js/reporte.js',
+                }
+            }
+        },
+
         watch: {
             html: {
-                files: ['**/*.html', '**/*.scss', 'js/*.js'],
+                files: ['**/*.html', '**/*.scss', 'src/js/*.js'],
                 tasks: ['sass'],
                 options: {
+                    spawn: false,
                     livereload: true,
                 }
 
@@ -55,7 +82,7 @@ module.exports = function(grunt) {
 
     // Default task.
     grunt.registerTask('serve', ['connect:server', 'watch']);
-    grunt.registerTask('build', ['sass', 'postcss']);
+    grunt.registerTask('build', ['clean', 'copy:build', 'sass', 'postcss', 'uglify']);
 
 
 };

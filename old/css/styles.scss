@@ -21,6 +21,18 @@ body {
     }
 }
 
+
+.panelsNavigation *, .border_box * {
+    font-family: Open Sans;
+    box-sizing: border-box;
+}
+
+.borderedSlide {
+    border-bottom: 2px dashed #999;
+    padding-top: 3em;
+    overflow: hidden !important;
+}
+
 .hide {
     opacity: 0 !important;
     transition: all 1 ease-in-outs
@@ -50,7 +62,6 @@ body {
         color: #FFF;
     }
 }
-
 
 
 /* MENU STYLES */

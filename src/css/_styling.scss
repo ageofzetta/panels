@@ -1,0 +1,31 @@
+
+
+/* Styling */
+
+
+
+.border_box:nth-child(1) header{
+	background-color: $surprise;
+	box-shadow: 0px .5ex 0 .3ex darken($surprise,20%);
+}
+
+.border_box:nth-child(2) header{
+	background-color: $surprise2;
+	box-shadow: 0px .5ex 0 .3ex darken($surprise2,20%);
+}
+
+.border_box:nth-child(3) header{
+	background-color: $surprise3;
+	box-shadow: 0px .5ex 0 .3ex darken($surprise3,20%);
+}
+
+.border_box:nth-child(4) header{
+	background-color: $surprise4;
+	box-shadow: 0px .5ex 0 .3ex darken($surprise4,20%);
+}
+
+.border_box:nth-child(5) header{
+	background-color: $surprise5;
+	box-shadow: 0px .5ex 0 .3ex darken($surprise5,20%);
+}
+

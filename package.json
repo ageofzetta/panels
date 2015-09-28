@@ -21,6 +21,9 @@
     "autoprefixer": "^6.0.3",
     "broccoli-cssnano": "^2.0.1",
     "cssnano": "^3.2.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.1",
+    "grunt-contrib-uglify": "^0.9.2",
     "grunt-postcss": "^0.6.0",
     "postcss-opacity": "^3.0.0"
   }

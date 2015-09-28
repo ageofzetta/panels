@@ -1,0 +1,77 @@
+@import 'colors';
+body {
+    margin: 0;
+}
+
+.has_zoom {
+    top: calc(20% + 50px);
+    position: relative;
+    margin: 0px;
+    left: 15%;
+    width: 70%;
+    &.normal {
+        transform: scale(1);
+        opacity: 1;
+        transition: all .5s;
+    }
+    &.zoom {
+        transform: scale(0.7);
+        opacity: .5;
+        transition: all .5s;
+    }
+}
+
+
+.panelsNavigation *, .border_box * {
+    font-family: Open Sans;
+    box-sizing: border-box;
+}
+
+.borderedSlide {
+    border-bottom: 2px dashed #999;
+    padding-top: 3em;
+    overflow: hidden !important;
+}
+
+.hide {
+    opacity: 0 !important;
+    transition: all 1 ease-in-outs
+}
+
+.panelHeader {
+    font-size: 38px;
+    display: block;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    top: 0;
+    cursor: pointer;
+    background-color: #666;
+    z-index: 2;
+    margin: 0;
+    color: #FFF;
+    &.active_header {
+        top: calc(0px + 50px);
+        position: fixed;
+    }
+    > * {
+        font-size: inherit;
+        line-height: 1.5em;
+        margin: 0;
+        margin-left: 15%;
+        color: #FFF;
+    }
+}
+
+
+/* MENU STYLES */
+
+@import 'menu';
+
+/* RESPONSIVE */
+
+@import 'responsive';
+
+/* COLORS  TO LOOK PRETTY */
+
+@import 'styling';

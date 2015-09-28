@@ -1,0 +1,101 @@
+.sublime-menu {
+    font-size: 16px;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 4;
+    left: 0;
+    top: calc(76px + 50px);
+    width: 15%;
+    text-align: center;
+    li {
+        list-style-type: none;
+        cursor: pointer;
+        display: block;
+        border-radius: 15px;
+        width: 1em;
+        height: 1em;
+        overflow: hidden;
+        text-indent: -200px;
+        padding: 0.25ex 1ex;
+        margin: auto;
+        margin-bottom: 1.2em;
+        transition: all 2s ease-in-out;
+        &.slide_marker {
+            overflow: visible;
+            text-indent: 1em;
+            font-size: 1.5ex;
+            span {
+                opacity: 0;
+                transtion: all 2s;
+            }
+            &.active,
+            &:hover {
+                span {
+                    opacity: 1;
+                    transtion: all 2s;
+                    margin-top: -0.75ex;
+                    position: absolute;
+                    text-align: left;
+                    text-indent: 0;
+                    margin-left: 1em;
+                    line-height: 1em;
+                }
+            }
+        }
+        &.section_marker {
+            font-size: 1.2ex;
+            padding: .5ex 1.25ex;
+            height: 2em;
+            min-width: 2em;
+            width: 2em;
+            font-weight: bolder;
+            &.active,
+            &:hover {
+                font-size: 1.5ex;
+                width: auto;
+                transition: all 1s ease-in-out;
+                text-indent: 0px;
+                border-radius: 0px;
+                display: inline-block;
+                margin-bottom: 1em;
+            }
+            &:hover {
+                transition: all .5s ease-in-out;
+            }
+        }
+    }
+}
+
+a.prevPanel {
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 16px solid rgba(0, 0, 0, 0.35);
+    display: block;
+    z-index: 3;
+    position: fixed;
+    top: calc(76px + 50px);
+    left: calc(50% - 16px);
+    &:hover {
+        border-bottom: 16px solid rgba(0, 0, 0, 1);
+    }
+}
+
+a.nextPanel {
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 16px solid rgba(0, 0, 0, 0.35);
+    display: block;
+    z-index: 3;
+    position: fixed;
+    bottom: 1ex;
+    left: calc(50% - 16px);
+    &:hover {
+        border-top: 16px solid rgba(0, 0, 0, 1);
+    }
+}
