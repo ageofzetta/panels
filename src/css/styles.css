@@ -90,7 +90,8 @@ body {
   left: 0;
   top: calc(76px + 50px);
   width: 15%;
-  text-align: center; }
+  text-align: center;
+  overflow-y: auto !important; }
   .sublime-menu li {
     list-style-type: none;
     cursor: pointer;
@@ -271,33 +272,37 @@ a.nextPanel {
   .panelHeader > * {
     line-height: 2.5em; }
 
-  .sublime-menu a.menu {
+  a.menu {
     padding: 1ex;
-    font-size: 3.5vw; } }
+    font-size: 3.5vw !important; } }
 .slide_left {
   left: 0 !important;
   transition: .5s ease-in-out; }
 
 /* COLORS  TO LOOK PRETTY */
 /* Styling */
+.border_box header {
+  background-color: #c8eb62;
+  box-shadow: 0px 0.5ex 0 0.3ex #9fcd1a; }
+
 .border_box:nth-child(1) header {
-  background-color: #e6a1e6;
-  box-shadow: 0px 0.5ex 0 0.3ex #d150d1; }
+  background-color: #1665bd;
+  box-shadow: 0px 0.5ex 0 0.3ex #0b3462; }
 
 .border_box:nth-child(2) header {
-  background-color: #397fd9;
-  box-shadow: 0px 0.5ex 0 0.3ex #1c4f90; }
+  background-color: #29469d;
+  box-shadow: 0px 0.5ex 0 0.3ex #14224c; }
 
 .border_box:nth-child(3) header {
-  background-color: #30f5ca;
-  box-shadow: 0px 0.5ex 0 0.3ex #09b690; }
+  background-color: #7f2d29;
+  box-shadow: 0px 0.5ex 0 0.3ex #321210; }
 
 .border_box:nth-child(4) header {
-  background-color: #7d0a38;
-  box-shadow: 0px 0.5ex 0 0.3ex #1f020e; }
+  background-color: #8c602c;
+  box-shadow: 0px 0.5ex 0 0.3ex #3e2b14; }
 
 .border_box:nth-child(5) header {
-  background-color: #f78f70;
-  box-shadow: 0px 0.5ex 0 0.3ex #f2430f; }
+  background-color: #c8eb62;
+  box-shadow: 0px 0.5ex 0 0.3ex #9fcd1a; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -9,6 +9,7 @@
     top: calc(76px + 50px);
     width: 15%;
     text-align: center;
+    overflow-y: auto !important;
     li {
         list-style-type: none;
         cursor: pointer;

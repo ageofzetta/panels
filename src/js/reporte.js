@@ -137,6 +137,7 @@ simplePanels.prototype.renderMenu = function() {
             $('.sublime-menu').append('<li class="slide_marker" data-slide-menu-link="slide-' + i + '-' + j + '" style="background-color:' + bgc + ';"><span>' + data_title + '</span></li>');
         });
     });
+
 };
 
 simplePanels.prototype.getViewport = function() {
@@ -161,10 +162,16 @@ simplePanels.prototype.getViewport = function() {
 simplePanels.prototype.positionSlides = function() {
     var vm = this;
     $(vm.parentContainer).each(function() {
+
         var parentContainerEL = $(this),
             offset = parentContainerEL.offset(),
             scrollTop = ($(window).scrollTop() + ((vm.viewport[1]) / 2));
         if ((scrollTop > offset.top) && (scrollTop < offset.top + parentContainerEL.height())) {
+            if ($(this).hasClass('disabled')) {
+            return false;
+        }else{
+            console.log('test')
+        }
             $(vm.theItem, this).each(function() {
 
                 $(this).removeClass('active_slide');
@@ -200,10 +207,16 @@ simplePanels.prototype.positionHeaders = function() {
     var vm = this;
     var menu = false;
     $(vm.parentContainer).each(function() {
+
         var el = $(this),
             offset = el.offset(),
             scrollTop = $(window).scrollTop();
         if ((scrollTop > offset.top) && (scrollTop < offset.top + el.height())) {
+            if ($(this).hasClass('disabled')) {
+                return false;
+            } else {
+                console.log('test')
+            }
             floatingHeader = $(vm.headerContainer, this);
             floatingHeader.addClass('active_header');
             menu = true;
@@ -225,10 +238,12 @@ simplePanels.prototype.getHeights = function() {
 
     var vm = this;
     vm.getViewport();
-    
+
     $(vm.parentContainer).each(function(i) {
         $(this).css('height', ($('' + vm.theItem, this).length * vm.viewport[1]));
         $(vm.theItem, this).css('height', (vm.viewport[1]));
+        $('.sublime-menu').css('height', (vm.viewport[1] - $('header').height()) + 'px');
+
         $(vm.theItem, this).each(function(j) {
             $('div', this).first().addClass('has_zoom normal');
         });

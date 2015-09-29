@@ -121,11 +121,9 @@
                 line-height: 2.5em;
             }
         }
-        .sublime-menu {
-            a.menu {
-                padding: 1ex;
-                font-size: 3.5vw;
-            }
+        a.menu {
+            padding: 1ex;
+            font-size: 3.5vw !important;
         }
     }
     
