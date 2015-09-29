@@ -57,7 +57,7 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 options: {
-                    sourcemap: 'none',
+                    sourceMap: true,
                     mangle: false
                 },
                 files: {

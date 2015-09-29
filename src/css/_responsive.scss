@@ -1,3 +1,11 @@
+    @media screen and (max-width: 1000px) {
+        .panelHeader {
+            .panelAction {
+                right: 0;
+            }
+        }
+    }
+    
     @media screen and (max-width: 800px) {
         .panelHeader {
             > * {
@@ -5,16 +13,16 @@
             }
             font-size: 5vw;
             text-align: center;
-            .panelAction {
-                right: 0;
+            &.active_header {
+                top: calc(0px + 0px);
             }
         }
         .has_zoom {
-            top: calc(5% + 50px);
+            top: calc(5% + 0px);
         }
         .sublime-menu {
             left: calc(-40% - 16px);
-            top: 50px;
+            top: 0px;
             width: 40%;
             text-align: left;
             background-color: #fff;
@@ -22,6 +30,7 @@
             box-shadow: 8px 0 16px rgba(0, 0, 0, 0.5);
             padding-left: 0;
             overflow-y: auto;
+            height: 100% !important;
             transition: all .5s ease-in-out;
             li {
                 width: 100% !important;
@@ -35,6 +44,9 @@
                 border-radius: 0;
                 overflow: hidden;
                 transition: all .5s ease-in-out;
+                &:first-child {
+                    display: none;
+                }
                 &.active,
                 &:hover {
                     padding: 0 1ex !important;
@@ -60,6 +72,7 @@
             }
         }
         a.menu {
+            display: block;
             font-family: monospace;
             font-weight: bolder !important;
             text-decoration: none;
@@ -67,7 +80,7 @@
             padding: 1ex;
             vertical-align: middle;
             position: fixed;
-            top: calc(1.1ex + 50px);
+            top: calc(1.1ex + 0px);
             z-index: 5;
             left: 1em;
             font-size: 1.2em;
@@ -86,7 +99,7 @@
             transition: all .5s ease-in-out;
         }
         a.prevPanel {
-            top: calc(10vw + 50px);
+            top: calc(10vw + 0px);
         }
     }
     
@@ -108,7 +121,7 @@
             }
         }
         a.prevPanel {
-            top: calc(15vw + 50px);
+            top: calc(15vw + 0px);
         }
     }
     
@@ -122,8 +135,11 @@
             }
         }
         a.menu {
-            padding: 1ex;
+            padding: 1ex !important;
             font-size: 3.5vw !important;
+        }
+        .has_zoom {
+            top: calc(10% + 0px);
         }
     }
     

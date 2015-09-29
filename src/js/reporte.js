@@ -65,7 +65,7 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         if ($(this).hasClass("active")) return;
         $('.sublime-menu li.section_marker.active').removeClass('active');
         var this_menu = $(this).attr('data-section-menu-link');
-        var this_header = $('header[data-section-menu-link="' + this_menu + '"]').parent('.section');
+        var this_header = $(vm.headerContainer+'[data-section-menu-link="' + this_menu + '"]').parent(vm.parentContainer);
         this_header.removeClass('disabled');
         $('.panelAction', this_header).removeClass('open').addClass('close');
         $(this).addClass("active");
@@ -77,10 +77,12 @@ var simplePanels = function(theItem, parentContainer, headerContainer) {
         event.preventDefault ? event.preventDefault() : event.returnValue = false;
         if ($(this).hasClass("active")) return;
         var this_menu = $(this).attr('data-slide-menu-link');
-        var this_slide = $('.slide[data-slide-menu-link="' + this_menu + '"]');
+        var this_slide = $(vm.theItem+'[data-slide-menu-link="' + this_menu + '"]');
+        var this_header = $(vm.theItem+'[data-slide-menu-link="' + this_menu + '"]').parent(vm.parentContainer);
+        this_header.removeClass('disabled');
+        $('.panelAction', this_header).removeClass('open').addClass('close');
         var slide_to = (this_slide.offset().top + 50);
         $(this).addClass("active");
-
         $.scrollTo(slide_to, 1000);
     });
 
@@ -124,8 +126,8 @@ simplePanels.prototype.renderMenu = function() {
     $(vm.parentContainer).each(function(i) {
         $(this).addClass('section-' + i).addClass('disabled border_box');
         var this_header = $(vm.headerContainer, this);
-        var bgc = this_header.css('background-color');
         this_header.attr('data-section-menu-link', 'header-' + i).addClass('panelHeader');
+        var bgc = this_header.css('background-color');
         var color = vm.contrastingColor(bgc.replace('rgb(', '').replace(')', '').split(', '));
         var data_title = this_header.attr('data-title') ? this_header.attr('data-title') : this_header.text();
         this_header.append('<a href="#" class="panelAction open"></a href="#">');
@@ -168,10 +170,8 @@ simplePanels.prototype.positionSlides = function() {
             scrollTop = ($(window).scrollTop() + ((vm.viewport[1]) / 2));
         if ((scrollTop > offset.top) && (scrollTop < offset.top + parentContainerEL.height())) {
             if ($(this).hasClass('disabled')) {
-            return false;
-        }else{
-            console.log('test')
-        }
+                return false;
+            }
             $(vm.theItem, this).each(function() {
 
                 $(this).removeClass('active_slide');
@@ -214,8 +214,6 @@ simplePanels.prototype.positionHeaders = function() {
         if ((scrollTop > offset.top) && (scrollTop < offset.top + el.height())) {
             if ($(this).hasClass('disabled')) {
                 return false;
-            } else {
-                console.log('test')
             }
             floatingHeader = $(vm.headerContainer, this);
             floatingHeader.addClass('active_header');
@@ -227,9 +225,9 @@ simplePanels.prototype.positionHeaders = function() {
     });
 
     if (menu) {
-        $('.sublime-menu, .nextPanel, .prevPanel').removeClass('hide');
+        $('a.menu, .sublime-menu, .nextPanel, .prevPanel').removeClass('hide');
     } else {
-        $('.sublime-menu, .nextPanel, .prevPanel').addClass('hide');
+        $('a.menu, .sublime-menu, .nextPanel, .prevPanel').addClass('hide');
     }
 
 };
@@ -242,7 +240,9 @@ simplePanels.prototype.getHeights = function() {
     $(vm.parentContainer).each(function(i) {
         $(this).css('height', ($('' + vm.theItem, this).length * vm.viewport[1]));
         $(vm.theItem, this).css('height', (vm.viewport[1]));
-        $('.sublime-menu').css('height', (vm.viewport[1] - $('header').height()) + 'px');
+        var headertop = vm.viewport[0] > 800 ? 50 : 0;
+        var ul_height = vm.viewport[1] - ( $(vm.headerContainer).height() + headertop);
+        $('.sublime-menu').css('height',  ul_height+ 'px');
 
         $(vm.theItem, this).each(function(j) {
             $('div', this).first().addClass('has_zoom normal');

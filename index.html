@@ -39,9 +39,9 @@
       
       
       <div class="section">
-         <header>
+         <div class="header">
             <h1>First</h1>
-         </header>
+         </div>
          <div class="slide">
             <div class="content">
                <h1 class="chance_me"></h1>
@@ -69,9 +69,9 @@
       </div>
 
       <div class="section">
-         <header>
+         <div class="header">
             <h1>Second</h1>
-         </header>
+         </div>
          <div class="slide">
             <div class="content">
                <h1 class="chance_me"></h1>
@@ -99,9 +99,9 @@
       </div>
 
       <div class="section">
-         <header>
+         <div class="header">
             <h1>Third</h1>
-         </header>
+         </div>
          <div class="slide">
             <div class="content">
                <h1 class="chance_me"></h1>
@@ -129,9 +129,9 @@
       </div>
 
       <div class="section">
-         <header>
+         <div class="header">
             <h1>Fourth</h1>
-         </header>
+         </div>
          <div class="slide">
             <div class="content">
                <h1 class="chance_me"></h1>
@@ -159,9 +159,9 @@
       </div>
 
       <div class="section">
-         <header>
+         <div class="header">
             <h1>Fifth</h1>
-         </header>
+         </div>
          <div class="slide">
             <div class="content">
                <h1 class="chance_me"></h1>
@@ -189,9 +189,9 @@
       </div>
 
       <div class="section">
-         <header>
+         <div class="header">
             <h1>Sixth</h1>
-         </header>
+         </div>
          <div class="slide">
             <div class="content">
                <h1 class="chance_me"></h1>
@@ -219,9 +219,9 @@
       </div>
 
       <div class="section">
-         <header>
+         <div class="header">
             <h1>Seventh (last)</h1>
-         </header>
+         </div>
          <div class="slide">
             <div class="content">
                <h1 class="chance_me"></h1>
@@ -268,6 +268,7 @@
          background-color: #0c99d1;
          box-shadow: 0px .5rem 0 .3rem #065271; }
          */
+
       </style>
       <script>
          $('p.chance_me').each(function() {
@@ -285,5 +286,5 @@
          
          
          
-         window.miau = new simplePanels('.slide', '.section');
+         window.miau = new simplePanels('.slide', '.section','.header');
       </script>
